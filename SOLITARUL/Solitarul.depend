@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1546532512 source:g:\solitarul\main.cpp
+	<bits/stdc++.h>
+	<graphics.h>
+	<windows.h>
+
