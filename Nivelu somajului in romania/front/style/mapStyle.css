@@ -1,0 +1,255 @@
+/*stilurile mapei si ale judetelor care se gasesc in aceasta*/
+#mainMap {
+    position: relative;
+    justify-content: center;
+    align-self: center;
+    width: 55%;
+    min-width: 350px;
+}
+
+#mainMap img {
+    width: 100%;
+}
+
+/*clasa pentru judete*/
+#mainMap .judet {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 2vw;
+}
+/*clasa holder, care face ca judetul sa ramana apasat*/
+#mainMap .holder {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: black;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/**/
+.holder {
+    top: 10%;
+    left: 90%;
+    width: 10%;
+    background-color: bisque;
+    display: none;
+}
+/*hover-ul peste judete*/
+.judet:hover+.holder {
+    display: block;
+}
+/*pozitionarea fiecarui judet in harta prin id-urile acestora*/
+#SV {
+    top: 15%;
+    left: 58%;
+}
+
+#BT {
+    top: 7%;
+    left: 70%;
+}
+
+#IS {
+    top: 22%;
+    left: 75%;
+}
+
+#VS {
+    top: 37%;
+    left: 79%;
+}
+
+#NT {
+    top: 26%;
+    left: 63%;
+}
+
+#BC {
+    top: 39%;
+    left: 68%;
+}
+
+#VN {
+    top: 52%;
+    left: 70%;
+}
+
+#GL {
+    top: 52%;
+    left: 79%;
+}
+
+#BR {
+    top: 67%;
+    left: 79%;
+}
+
+#HR {
+    top: 38%;
+    left: 56%;
+}
+
+#CV {
+    top: 50%;
+    left: 61%;
+}
+
+#BZ {
+    top: 64%;
+    left: 69%;
+}
+
+#TL {
+    top: 69%;
+    left: 90%;
+}
+
+#IL {
+    top: 77%;
+    left: 75%;
+}
+
+#CT {
+    top: 86%;
+    left: 86%;
+}
+
+#CL {
+    top: 84%;
+    left: 72%;
+}
+
+#IF {
+    top: 80%;
+    left: 63%;
+}
+
+#GR {
+    top: 89%;
+    left: 60%;
+}
+
+#PH {
+    top: 67%;
+    left: 60%;
+}
+
+#DB {
+    top: 74%;
+    left: 55%;
+}
+
+#TR {
+    top: 90%;
+    left: 52%;
+}
+
+#OT {
+    top: 85%;
+    left: 44%;
+}
+
+#DJ {
+    top: 88%;
+    left: 34%;
+}
+
+#MH {
+    top: 80%;
+    left: 26%;
+}
+
+#AG {
+    top: 70%;
+    left: 48%;
+}
+
+#BV {
+    top: 53%;
+    left: 52%;
+}
+
+#VL {
+    top: 68%;
+    left: 40%;
+}
+
+#SB {
+    top: 52%;
+    left: 42%;
+}
+
+#GJ {
+    top: 70%;
+    left: 32%;
+}
+
+#HD {
+    top: 54%;
+    left: 28%;
+}
+
+#AB {
+    top: 45%;
+    left: 35%;
+}
+
+#CS {
+    top: 65%;
+    left: 18%;
+}
+
+#TM {
+    top: 52%;
+    left: 11%;
+}
+
+#MS {
+    top: 36%;
+    left: 46%;
+}
+
+#AR {
+    top: 41%;
+    left: 17%;
+}
+
+#BH {
+    top: 28%;
+    left: 21%;
+}
+
+#CJ {
+    top: 32%;
+    left: 35%;
+}
+
+#BN {
+    top: 22%;
+    left: 44%;
+}
+
+#SJ {
+    top: 23%;
+    left: 30%;
+}
+
+#SM {
+    top: 12%;
+    left: 27%;
+}
+
+#MM {
+    top: 11%;
+    left: 39%;
+}

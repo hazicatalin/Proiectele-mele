@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nivelul somajului in romania">
+  <meta name="keywords" content="HTML, CSS, JavaScript, PHP, project, infoiasi, web">
+  <meta name="author" content="Ungureanu Octavian, Mireuta Andrei, Hazi Catalin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+    integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+    crossorigin="anonymous"></script>
+  <script src="jsStuff/hidden.js"></script>
+  <script src="jsStuff/buttonActions.js"></script>
+  <script src="jsStuff/map.js"></script>
+  <script src="jsStuff/download.js"></script>
+  <script src="jsStuff/charts.js"></script>
+  <script src="jsStuff/canvas2SVG.js"></script>
+
+  <link rel="stylesheet" href="style/mapStyle.css" type="text/css">
+  <link rel="stylesheet" href="style/styleMainPage.css" type="text/css">
+  <title>- RUnDa -</title>
+</head>
+
+<body>
+  <!-- filtre/criterii- partea de sus a site-ului in care utilizatorul isi selecteaza datele ce vor fi procesate -->
+  <div id="criterii">
+    <!--butonul care deschide meniul dropdown-ului si care afiseaza toate judetele-->
+    <div class="filtre dropdown">
+      <button onclick="myFunction(); showDivJud();" class="filtru dropbtn">Judete</button>
+      <!--Lista cu fiecare judet din dropdown-->
+      <div id="myDropdown" class="dropdown-content">
+        <button class="dropdownButton" onclick="showJud('Alba')">Alba</button>
+        <button class="dropdownButton" onclick="showJud('Arad')">Arad</button>
+        <button class="dropdownButton" onclick="showJud('Arges')">Arges</button>
+        <button class="dropdownButton" onclick="showJud('Bacau')">Bacau</button>
+        <button class="dropdownButton" onclick="showJud('Bihor')">Bihor</button>
+        <button class="dropdownButton" onclick="showJud('Bistrita-Nasaud')">Bistrita-Nasaud</button>
+        <button class="dropdownButton" onclick="showJud('Botosani')">Botosani</button>
+        <button class="dropdownButton" onclick="showJud('Brasov')">Brasov</button>
+        <button class="dropdownButton" onclick="showJud('Braila')">Braila</button>
+        <button class="dropdownButton" onclick="showJud('Bucuresti')">Bucuresti</button>
+        <button class="dropdownButton" onclick="showJud('Buzau')">Buzau</button>
+        <button class="dropdownButton" onclick="showJud('Caras-Severin')">Caras-Severin</button>
+        <button class="dropdownButton" onclick="showJud('Calarasi')">Calarasi</button>
+        <button class="dropdownButton" onclick="showJud('Cluj')">Cluj</button>
+        <button class="dropdownButton" onclick="showJud('Constanta')">Constanta</button>
+        <button class="dropdownButton" onclick="showJud('Covasna')">Covasna</button>
+        <button class="dropdownButton" onclick="showJud('Dambovita')">Dambovita</button>
+        <button class="dropdownButton" onclick="showJud('Dolj')">Dolj</button>
+        <button class="dropdownButton" onclick="showJud('Galati')">Galati</button>
+        <button class="dropdownButton" onclick="showJud('Giurgiu')">Giurgiu</button>
+        <button class="dropdownButton" onclick="showJud('Gorj')">Gorj</button>
+        <button class="dropdownButton" onclick="showJud('Harghita')">Harghita</button>
+        <button class="dropdownButton" onclick="showJud('Hunedoara')">Hunedoara</button>
+        <button class="dropdownButton" onclick="showJud('Ialomita')">Ialomita</button>
+        <button class="dropdownButton" onclick="showJud('Iasi')">Iasi</button>
+        <button class="dropdownButton" onclick="showJud('Ilfov')">Ilfov</button>
+        <button class="dropdownButton" onclick="showJud('Maramures')">Maramures</button>
+        <button class="dropdownButton" onclick="showJud('Mehedinti')">Mehedinti</button>
+        <button class="dropdownButton" onclick="showJud('Mures')">Mures</button>
+        <button class="dropdownButton" onclick="showJud('Neamt')">Neamt</button>
+        <button class="dropdownButton" onclick="showJud('Olt')">Olt</button>
+        <button class="dropdownButton" onclick="showJud('Prahova')">Prahova</button>
+        <button class="dropdownButton" onclick="showJud('Satu-Mare')">Satu-Mare</button>
+        <button class="dropdownButton" onclick="showJud('Salaj')">Salaj</button>
+        <button class="dropdownButton" onclick="showJud('Sibiu')">Sibiu</button>
+        <button class="dropdownButton" onclick="showJud('Suceava')">Suceava</button>
+        <button class="dropdownButton" onclick="showJud('Teleorman')">Teleorman</button>
+        <button class="dropdownButton" onclick="showJud('Timis')">Timis</button>
+        <button class="dropdownButton" onclick="showJud('Tulcea')">Tulcea</button>
+        <button class="dropdownButton" onclick="showJud('Vaslui')">Vaslui</button>
+        <button class="dropdownButton" onclick="showJud('Valcea')">Valcea</button>
+        <button class="dropdownButton" onclick="showJud('Vrancea')">Vrancea</button>
+      </div>
+    </div>
+    <!--filtrul pentru luni-->
+    <div class="filtre">
+      <button class="filtru" onclick="showDivLuni()">Luni</button>
+    </div>
+    <!--filtrul epntru studii-->
+    <div class="filtre">
+      <button class="filtru" onclick="showDivStudii()">Studii</button>
+    </div>
+    <!--filtrul pentru mediu-->
+    <div class="filtre">
+      <button class="filtru" onclick="showDivMediu()">Mediu</button>
+    </div>
+    <!--filtrul pentru varsta-->
+    <div class="filtre">
+      <button class="filtru" onclick="showDivVarsta()">Varsta</button>
+    </div>
+  </div>
+
+  <!-- judetele  -->
+  <div id="judete" class="hidden_zone">
+    <span id="textJudet">Judetele selectate</span>
+    <div id="butoaneJudete">
+      <div id="Alba" class="buton-div-judete">
+        <button id="AlbaBtn" class="buton-judete" onclick="disappear('Alba')">Alba</button>
+      </div>
+      <div id="Arad" class="buton-div-judete">
+        <button id="AradBtn" class="buton-judete" onclick="disappear('Arad')">Arad</button>
+      </div>
+      <div id="Arges" class="buton-div-judete">
+        <button id="ArgesBtn" class="buton-judete" onclick="disappear('Arges')">Arges</button>
+      </div>
+      <div id="Bacau" class="buton-div-judete">
+        <button id="BacauBtn" class="buton-judete" onclick="disappear('Bacau')">Bacau</button>
+      </div>
+      <div id="Bihor" class="buton-div-judete">
+        <button id="BihorBtn" class="buton-judete" onclick="disappear('Bihor')">Bihor</button>
+      </div>
+      <div id="Bistrita-Nasaud" class="buton-div-judete">
+        <button id="BistritaBtn" class="buton-judete" onclick="disappear('Bistrita-Nasaud')">Bistrita-Nasaud</button>
+      </div>
+      <div id="Botosani" class="buton-div-judete">
+        <button id="BotosaniBtn" class="buton-judete" onclick="disappear('Botosani')">Botosani</button>
+      </div>
+      <div id="Braila" class="buton-div-judete">
+        <button id="BrailaBtn" class="buton-judete" onclick="disappear('Braila')">Braila</button>
+      </div>
+      <div id="Brasov" class="buton-div-judete">
+        <button id="BrasovBtn" class="buton-judete" onclick="disappear('Brasov')">Brasov</button>
+      </div>
+      <div id="Buzau" class="buton-div-judete">
+        <button id="BuzauBtn" class="buton-judete" onclick="disappear('Buzau')">Buzau</button>
+      </div>
+      <div id="Calarasi" class="buton-div-judete">
+        <button id="CalarasiBtn" class="buton-judete" onclick="disappear('Calarasi')">Calarasi</button>
+      </div>
+      <div id="Caras-Severin" class="buton-div-judete">
+        <button id="CarasBtn" class="buton-judete" onclick="disappear('Caras-Severin')">Caras-Severin</button>
+      </div>
+      <div id="Cluj" class="buton-div-judete">
+        <button id="ClujBtn" class="buton-judete" onclick="disappear('Cluj')">Cluj</button>
+      </div>
+      <div id="Constanta" class="buton-div-judete">
+        <button id="ConstantaBtn" class="buton-judete" onclick="disappear('Constanta')">Constanta</button>
+      </div>
+      <div id="Covasna" class="buton-div-judete">
+        <button id="CovasnaBtn" class="buton-judete" onclick="disappear('Covasna')">Covasna</button>
+      </div>
+      <div id="Dambovita" class="buton-div-judete">
+        <button id="DambovitaBtn" class="buton-judete" onclick="disappear('Dambovita')">Dambovita</button>
+      </div>
+      <div id="Dolj" class="buton-div-judete">
+        <button id="DoljBtn" class="buton-judete" onclick="disappear('Dolj')">Dolj</button>
+      </div>
+      <div id="Galati" class="buton-div-judete">
+        <button id="GalatiBtn" class="buton-judete" onclick="disappear('Galati')">Galati</button>
+      </div>
+      <div id="Giurgiu" class="buton-div-judete">
+        <button id="GiurgiuBtn" class="buton-judete" onclick="disappear('Giurgiu')">Giurgiu</button>
+      </div>
+      <div id="Gorj" class="buton-div-judete">
+        <button id="GorjBtn" class="buton-judete" onclick="disappear('Gorj')">Gorj</button>
+      </div>
+      <div id="Harghita" class="buton-div-judete">
+        <button id="HarghitaBtn" class="buton-judete" onclick="disappear('Harghita')">Harghita</button>
+      </div>
+      <div id="Hunedoara" class="buton-div-judete">
+        <button id="HunedoaraBtn" class="buton-judete" onclick="disappear('Hunedoara')">Hunedoara</button>
+      </div>
+      <div id="Ialomita" class="buton-div-judete">
+        <button id="IalomitaBtn" class="buton-judete" onclick="disappear('Ialomita')">Ialomita</button>
+      </div>
+      <div id="Iasi" class="buton-div-judete">
+        <button id="IasiBtn" class="buton-judete" onclick="disappear('Iasi')">Iasi</button>
+      </div>
+      <div id="Ilfov" class="buton-div-judete">
+        <button id="IlfovBtn" class="buton-judete" onclick="disappear('Ilfov')">Ilfov</button>
+      </div>
+      <div id="Maramures" class="buton-div-judete">
+        <button id="MaramuresBtn" class="buton-judete" onclick="disappear('Maramures')">Maramures</button>
+      </div>
+      <div id="Mehedinti" class="buton-div-judete">
+        <button id="MehedintiBtn" class="buton-judete" onclick="disappear('Mehedinti')">Mehedinti</button>
+      </div>
+      <div id="Mures" class="buton-div-judete">
+        <button id="MuresBtn" class="buton-judete" onclick="disappear('Mures')">Mures</button>
+      </div>
+      <div id="Neamt" class="buton-div-judete">
+        <button id="NeamtBtn" class="buton-judete" onclick="disappear('Neamt')">Neamt</button>
+      </div>
+      <div id="Olt" class="buton-div-judete">
+        <button id="OltBtn" class="buton-judete" onclick="disappear('Olt')">Olt</button>
+      </div>
+      <div id="Prahova" class="buton-div-judete">
+        <button id="PrahovaBtn" class="buton-judete" onclick="disappear('Prahova')">Prahova</button>
+      </div>
+      <div id="Salaj" class="buton-div-judete">
+        <button id="SalajBtn" class="buton-judete" onclick="disappear('Salaj')">Salaj</button>
+      </div>
+      <div id="Satu-Mare" class="buton-div-judete">
+        <button id="SatuBtn" class="buton-judete" onclick="disappear('Satu-Mare')">Satu-Mare</button>
+      </div>
+      <div id="Sibiu" class="buton-div-judete">
+        <button id="SibiuBtn" class="buton-judete" onclick="disappear('Sibiu')">Sibiu</button>
+      </div>
+      <div id="Suceava" class="buton-div-judete">
+        <button id="SuceavaBtn" class="buton-judete" onclick="disappear('Suceava')">Suceava</button>
+      </div>
+      <div id="Teleorman" class="buton-div-judete">
+        <button id="TeleormanBtn" class="buton-judete" onclick="disappear('Teleorman')">Teleorman</button>
+      </div>
+      <div id="Timis" class="buton-div-judete">
+        <button id="TimisBtn" class="buton-judete" onclick="disappear('Timis')">Timis</button>
+      </div>
+      <div id="Tulcea" class="buton-div-judete">
+        <button id="TulceaBtn" class="buton-judete" onclick="disappear('Tulcea')">Tulcea</button>
+      </div>
+      <div id="Valcea" class="buton-div-judete">
+        <button id="ValceaBtn" class="buton-judete" onclick="disappear('Valcea')">Valcea</button>
+      </div>
+      <div id="Vaslui" class="buton-div-judete">
+        <button id="VasluiBtn" class="buton-judete" onclick="disappear('Vaslui')">Vaslui</button>
+      </div>
+      <div id="Vrancea" class="buton-div-judete">
+        <button id="VranceaBtn" class="buton-judete" onclick="disappear('Vrancea')">Vrancea</button>
+      </div>
+      <div id="Bucuresti" class="buton-div-judete">
+        <button id="BucurestiBtn" class="buton-judete" onclick="disappear('Bucuresti')">Bucuresti</button>
+      </div>
+    </div>
+    <div id="deleteAll">
+      <button class="buton-judete" onclick="disappearAll()">Sterge tot</button>
+    </div>
+  </div>
+
+  <!-- butoanele pentru luni -->
+  <div id="luni" class="hidden_zone">
+    <div class="buton-div-luni">
+      <button id="ian" class="buton-criterii" onclick="changeColorMonth('ian')">Ian</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="feb" class="buton-criterii" onclick="changeColorMonth('feb')">Feb</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="mar" class="buton-criterii" onclick="changeColorMonth('mar')">Mar</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="apr" class="buton-criterii" onclick="changeColorMonth('apr')">Apr</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="mai" class="buton-criterii" onclick="changeColorMonth('mai')">Mai</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="iun" class="buton-criterii" onclick="changeColorMonth('iun')">Iun</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="iul" class="buton-criterii" onclick="changeColorMonth('iul')">Iul</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="aug" class="buton-criterii" onclick="changeColorMonth('aug')">Aug</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="sept" class="buton-criterii" onclick="changeColorMonth('sept')">Sept</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="oct" class="buton-criterii" onclick="changeColorMonth('oct')">Oct</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="nov" class="buton-criterii" onclick="changeColorMonth('nov')">Nov</button>
+    </div>
+    <div class="buton-div-luni">
+      <button id="dec" class="buton-criterii" onclick="changeColorMonth('dec')">Dec</button>
+    </div>
+
+  </div>
+
+  <!--   butoanele pentru studii -->
+  <div id="studii" class="hidden_zone">
+    <div class="buton-div-studii">
+      <button id="faraS" class="buton-criterii" onclick="changeColor('faraS')">Fara<br>studii</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="primar" class="buton-criterii" onclick="changeColor('primar')">Invatamant<br>primar</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="gimnazial" class="buton-criterii" onclick="changeColor('gimnazial')">Invatamant<br>gimnazial</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="liceal" class="buton-criterii" onclick="changeColor('liceal')">Invatamant<br>liceal</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="postliceal" class="buton-criterii"
+        onclick="changeColor('postliceal')">Invatamant<br>postliceal</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="profesional" class="buton-criterii"
+        onclick="changeColor('profesional')">Invatamant<br>profesional</button>
+    </div>
+    <div class="buton-div-studii">
+      <button id="universitar" class="buton-criterii"
+        onclick="changeColor('universitar')">Invatamant<br>universitar</button>
+    </div>
+  </div>
+
+  <!-- butoanele pentru mediu -->
+  <div id="mediu" class="hidden_zone">
+    <div class="buton-div-mediu">
+      <button id="rural" class="buton-criterii" onclick="changeColor('rural')">Mediu<br>rural</button>
+    </div>
+    <div class="buton-div-mediu">
+      <button id="urban" class="buton-criterii" onclick="changeColor('urban')">Mediu<br>urban</button>
+    </div>
+  </div>
+
+  <!-- butoanele pentru selectarea anilor -->
+  <div id="varsta" class="hidden_zone">
+    <div class="buton-div-varsta">
+      <button id="ani25" class="buton-criterii" onclick="changeColor('ani25')"> &#60; 25 ani</button>
+    </div>
+    <div class="buton-div-varsta">
+      <button id="ani2529" class="buton-criterii" onclick="changeColor('ani2529')">25-29 ani</button>
+    </div>
+    <div class="buton-div-varsta">
+      <button id="ani30" class="buton-criterii" onclick="changeColor('ani30')">30-39 ani</button>
+    </div>
+    <div class="buton-div-varsta">
+      <button id="ani40" class="buton-criterii" onclick="changeColor('ani40')">40-49 ani</button>
+    </div>
+    <div class="buton-div-varsta">
+      <button id="ani50" class="buton-criterii" onclick="changeColor('ani50')">50-55 ani</button>
+    </div>
+    <div class="buton-div-varsta">
+      <button id="ani55" class="buton-criterii" onclick="changeColor('ani55')">&#62; 55 ani</button>
+    </div>
+  </div>
+
+
+  <!-- chart-urile pie,line,bar si map-->
+  <div id="mainFirst" class="charts">
+    <p id="textHolder"> Selecteaza modul de afisare al datelor </p>
+  </div>
+
+  <div id="mainPie" class="charts">
+    <div id="canvas" class="chartType">
+      <canvas id="chart-pie"></canvas>
+    </div>
+  </div>
+
+  <div id="mainLine" class="charts">
+    <div id="canvas-line" class="chartType">
+      <canvas id="chart-line"></canvas>
+    </div>
+  </div>
+
+  <div id="mainBar" class="charts">
+    <div id="canvas-bar" class="chartType">
+      <canvas id="chart-bar"></canvas>
+    </div>
+  </div>
+
+  <!-- MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP -->
+  <div id="mainMap" class="charts">
+    <img src="pics/harta.png" alt="Harta">
+
+    <div class="judet" id="SV" onmouseover="setMapValue('pSV')"></div>
+    <span id="pSV" class="holder">SV</span>
+
+    <div class="judet" id="BT" onmouseover="setMapValue('pBT')"></div>
+    <span id="pBT" class="holder">BT</span>
+
+    <div class="judet" id="IS" onmouseover="setMapValue('pIS')"></div>
+    <span id="pIS" class="holder">IS</span>
+
+    <div class="judet" id="VS" onmouseover="setMapValue('pVS')"></div>
+    <span id="pVS" class="holder">VS</span>
+
+    <div class="judet" id="NT" onmouseover="setMapValue('pNT')"></div>
+    <span id="pNT" class="holder">NT</span>
+
+    <div class="judet" id="BC" onmouseover="setMapValue('pBC')"></div>
+    <span id="pBC" class="holder">BC</span>
+
+    <div class="judet" id="VN" onmouseover="setMapValue('pVN')"></div>
+    <span id="pVN" class="holder">VN</span>
+
+    <div class="judet" id="GL" onmouseover="setMapValue('pGL')"></div>
+    <span id="pGL" class="holder">GL</span>
+
+    <div class="judet" id="BR" onmouseover="setMapValue('pBR')"></div>
+    <span id="pBR" class="holder">BR</span>
+
+    <div class="judet" id="HR" onmouseover="setMapValue('pHR')"></div>
+    <span id="pHR" class="holder">HR</span>
+
+    <div class="judet" id="CV" onmouseover="setMapValue('pCV')"></div>
+    <span id="pCV" class="holder">CV</span>
+
+    <div class="judet" id="BZ" onmouseover="setMapValue('pBZ')"></div>
+    <span id="pBZ" class="holder">BZ</span>
+
+    <div class="judet" id="TL" onmouseover="setMapValue('pTL')"></div>
+    <span id="pTL" class="holder">TL</span>
+
+    <div class="judet" id="IL" onmouseover="setMapValue('pIL')"></div>
+    <span id="pIL" class="holder">IL</span>
+
+    <div class="judet" id="CT" onmouseover="setMapValue('pCT')"></div>
+    <span id="pCT" class="holder">CT</span>
+
+    <div class="judet" id="CL" onmouseover="setMapValue('pCL')"></div>
+    <span id="pCL" class="holder">CL</span>
+
+    <div class="judet" id="IF" onmouseover="setMapValue('pIF')"></div>
+    <span id="pIF" class="holder">IF</span>
+
+    <div class="judet" id="GR" onmouseover="setMapValue('pGR')"></div>
+    <span id="pGR" class="holder">GR</span>
+
+    <div class="judet" id="PH" onmouseover="setMapValue('pPH')"></div>
+    <span id="pPH" class="holder">PH</span>
+
+    <div class="judet" id="DB" onmouseover="setMapValue('pDB')"></div>
+    <span id="pDB" class="holder">DB</span>
+
+    <div class="judet" id="TR" onmouseover="setMapValue('pTR')"></div>
+    <span id="pTR" class="holder">TR</span>
+
+    <div class="judet" id="OT" onmouseover="setMapValue('pOT')"></div>
+    <span id="pOT" class="holder">OT</span>
+
+    <div class="judet" id="DJ" onmouseover="setMapValue('pDJ')"></div>
+    <span id="pDJ" class="holder">DJ</span>
+
+    <div class="judet" id="MH" onmouseover="setMapValue('pMH')"></div>
+    <span id="pMH" class="holder">MH</span>
+
+    <div class="judet" id="AG" onmouseover="setMapValue('pAG')"></div>
+    <span id="pAG" class="holder">AG</span>
+
+    <div class="judet" id="BV" onmouseover="setMapValue('pBV')"></div>
+    <span id="pBV" class="holder">BV</span>
+
+    <div class="judet" id="VL" onmouseover="setMapValue('pVL')"></div>
+    <span id="pVL" class="holder">VL</span>
+
+    <div class="judet" id="SB" onmouseover="setMapValue('pSB')"></div>
+    <span id="pSB" class="holder">SB</span>
+
+    <div class="judet" id="GJ" onmouseover="setMapValue('pGJ')"></div>
+    <span id="pGJ" class="holder">GJ</span>
+
+    <div class="judet" id="HD" onmouseover="setMapValue('pHD')"></div>
+    <span id="pHD" class="holder">HD</span>
+
+    <div class="judet" id="AB" onmouseover="setMapValue('pAB')"></div>
+    <span id="pAB" class="holder">AB</span>
+
+    <div class="judet" id="CS" onmouseover="setMapValue('pCS')"></div>
+    <span id="pCS" class="holder">CS</span>
+
+    <div class="judet" id="TM" onmouseover="setMapValue('pTM')"></div>
+    <span id="pTM" class="holder">TM</span>
+
+    <div class="judet" id="MS" onmouseover="setMapValue('pMS')"></div>
+    <span id="pMS" class="holder">MS</span>
+
+    <div class="judet" id="AR" onmouseover="setMapValue('pAR')"></div>
+    <span id="pAR" class="holder">AR</span>
+
+    <div class="judet" id="BH" onmouseover="setMapValue('pBH')"></div>
+    <span id="pBH" class="holder">BH</span>
+
+    <div class="judet" id="CJ" onmouseover="setMapValue('pCJ')"></div>
+    <span id="pCJ" class="holder">CJ</span>
+
+    <div class="judet" id="BN" onmouseover="setMapValue('pBN')"></div>
+    <span id="pBN" class="holder">BN</span>
+
+    <div class="judet" id="SJ" onmouseover="setMapValue('pSJ')"></div>
+    <span id="pSJ" class="holder">SJ</span>
+
+    <div class="judet" id="SM" onmouseover="setMapValue('pSM')"></div>
+    <span id="pSM" class="holder">SM</span>
+
+    <div class="judet" id="MM" onmouseover="setMapValue('pMM')"></div>
+    <span id="pMM" class="holder">MM</span>
+  </div>
+
+  <!-- END MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP -->
+
+  <!-- selectarea metodei de afisare -->
+  <div id="grafice">
+    <div class="filtre">
+      <button class="filtru" onclick="selectChart(0); showDivPie();">Pie</button>
+    </div>
+    <div class="filtre">
+      <button class="filtru" onclick="selectChart(1); showDivLine();">Line</button>
+    </div>
+    <div class="filtre">
+      <button class="filtru" onclick="selectChart(2); showDivBar();">Bar</button>
+    </div>
+    <div class="filtre">
+      <button class="filtru" onclick="showDivMap()">Harta</button>
+    </div>
+    <!--butonul de dropdown si optiunile de pe acesta-->
+    <div class="filtre dropdown">
+      <button class="filtru dropbtn">Descarca</button>
+      <div class="dropdown-content-download">
+        <button class="dropdownButton" onclick="downloadPDF()">PFD</button>
+        <button class=" dropdownButton" onclick="downloadCSV()">CSV</button>
+        <button class="dropdownButton" onclick="downloadSVG()">SVG</button>
+        <button class="dropdownButton" onclick="downloadXML()">XML</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

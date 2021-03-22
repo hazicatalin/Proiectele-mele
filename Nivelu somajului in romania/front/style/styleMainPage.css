@@ -1,0 +1,315 @@
+/* generale */
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 1%;
+}
+/*umplerea ecranului*/
+#container{
+    margin:0%;
+    margin-top: 0%;
+    background-color: #ffebd9;
+    position: relative;
+}
+/*css ul pentru bara de criterii, unde utilizatorul isi poate alege si selecta ce doreste sa afle*/
+#criterii{
+    display: flex;
+    background-color: #ffebd9;
+    margin: 1%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border-radius: 15px;
+}
+/**/
+.hidden_zone{
+    display: none;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(114, 97, 131);
+    flex-direction: row;
+    border-radius: 15px;
+}
+/*div-ul de jos, ce contine formatul in care vrem sa vedem informatiile*/
+#grafice{
+  display: flex;
+  background-color: #ffebd9;
+  margin: 1%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border-radius: 20px;
+}
+/* */
+#judete{
+    background-color: #ecfbfc;
+    flex-direction: column;
+    min-height: 130px;
+}
+#studii{
+  background-color: #ecfbfc;
+}
+#mediu{
+  background-color: #ecfbfc;
+}
+#varsta{
+  background-color: #ecfbfc;
+}
+#luni{
+  background-color: #ecfbfc;
+}
+/* chart-uri */
+.charts{
+  display: flex;
+  background-color: #ecfbfc;
+  margin: 1%;
+  display: none;
+}
+#mainFirst{
+  display: flex;
+  background-color: #ecfbfc;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+}
+#textHolder{
+  font-size: 3vw;
+}
+#mainPie{
+    background-color: rgb(252, 255, 208);
+}
+#mainLine{
+  background-color: rgb(4, 255, 208);
+}
+#mainBar{
+  background-color: rgb(252, 200, 208);
+}
+#mainMap{
+  background-color: rgb(42, 6, 208);
+}
+.chartType{
+  width:70vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  min-width: 300px;
+}
+
+/* ##### Zona pentru div-urile ce contin butoane ################# */
+
+.filtre{
+    background-color:#ffebd9;
+    width: 10vw;
+    min-width: 90px;
+    height: 5vh;
+    min-height: 60px;
+    margin: 0.5%;
+    position: relative;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+.buton-div-luni , .buton-div-varsta, .buton-div-studii,.buton-div-mediu{
+  background-color:#ecfbfc;
+  height: 6vh;
+  min-height: 65px;
+  margin: 1%;
+}
+ .buton-div-luni:hover  , .buton-div-varsta:hover, .buton-div-studii:hover, .buton-div-mediu:hover{
+  color: white;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+/* ##### Zona pentru butoane ################# */
+
+.filtru {
+  font-family: 'arial black';
+  color: #F2F2F2 !important;
+  font-size: 17px;
+  text-shadow: 1px 1px 1px #284027;
+  box-shadow: 1px 1px 1px #ffc8bd;
+  padding: 10px 25px;
+  /* -moz-border-radius: 14px;
+  -webkit-border-radius: 14px; */
+  border-radius: 14px;
+  border: 1px solid #FFC8BD;
+  background: #9BEE9D;
+  background: linear-gradient(to top,  #FFC8BD,  #A38079);
+  /* background: -ms-linear-gradient(top,  #FFC8BD,  #A38079);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFC8BD), to(#A38079));
+  background: -moz-linear-gradient(top,  #FFC8BD,  #A38079); */
+  position: relative;
+  padding: 8% 15%;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin-top: 15px;
+  margin:auto;
+  position: relative;
+  top: 4%;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+
+}
+.filtru:hover {
+  
+  color: #F2F5F5 !important;
+  background: #468CCF;
+  background: linear-gradient(to top,  #FFC8BD,  #D6A89F);
+  /* background: -ms-linear-gradient(top,  #FFC8BD,  #D6A89F);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFC8BD), to(#D6A89F));
+  background: -moz-linear-gradient(top,  #FFC8BD,  #D6A89F); */
+}
+
+/*butoanele de selectare a criteriilor de afisare*/
+.buton-criterii{
+  background-color: wheat;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 8% 15%;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  position: relative;
+  top: 10%;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  width: 20vh;
+}
+/* judete */
+#textJudet{
+  align-self: center;
+  font-size: x-large;
+  top: 5%;
+}
+#butoaneJudete{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+#deleteAll{
+  display: block;
+  align-self: center;
+  padding: 40px;
+}
+/*siv ul ce contine lista cu toate judetele*/
+.buton-div-judete {
+  display: none;
+  background-color:#ecfbfc;
+  margin: 1%;
+  margin-bottom: 5px;
+}
+/*butoanele judetelor*/
+.buton-judete{
+  background-color: wheat;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 8% 15%;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  position: relative;
+  top: 10%;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  width: 13vh;
+}
+
+/*dropdown ul pentru download  */
+  .dropbtn {
+    background-color: #b2b2b2;
+    color: white;
+    border-radius: 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #ebd5d5;
+  }
+  
+  #myInput {
+    box-sizing: border-box;
+    /* background-image: url('searchicon.png'); */
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #myInput:focus {outline: 3px solid #ddd;}
+
+  /*Stilul butoanelor din dropdown ul pentru judete  */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFC8BD;
+    max-height: 80vh;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    overflow-y: scroll;   
+  }
+  
+  .dropdown-content-download {
+    display: none;
+    position: absolute;
+    max-height: 15rem;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    bottom: 50px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+  }
+  .dropdown-content-download span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content span:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown-content-download span:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content-download {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+  .dropdown a:hover {background-color: #ddd;}
+
+
+  /* butoane dropdown */
+
+  .dropdownButton {
+    width: 100%;
+    background-color: #FFC8BD;
+    font-weight: bold;
+    font-family: 'Georgia';
+    font-size: large;
+    height: 3vh;
+    border: none;
+  }
+
+ 

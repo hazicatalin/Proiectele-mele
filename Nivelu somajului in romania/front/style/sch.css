@@ -1,0 +1,29 @@
+*{
+    margin-left: 20px;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+/*umplerea ecranului si scoaterea marginii din body*/
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ecfbfc;
+}
+/*titlul paginii de scholary*/
+.title{
+    color:saddlebrown;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
